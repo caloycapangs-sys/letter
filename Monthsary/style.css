@@ -1,0 +1,159 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ffe5ec 0%, #ffb3c6 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    color: #4a4a4a;
+}
+
+/* Background Sparkles Effect */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: radial-gradient(circle, transparent 20%, #ffe5ec 20%, #ffe5ec 80%, transparent 80%, transparent),
+                radial-gradient(circle, transparent 20%, #ffe5ec 20%, #ffe5ec 80%, transparent 80%, transparent);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+    opacity: 0.3;
+}
+
+/* Container */
+.container {
+    text-align: center;
+    max-width: 600px;
+    padding: 30px;
+    z-index: 10;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #ff4d6d;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-style: italic;
+    color: #6c757d;
+    margin-bottom: 30px;
+}
+
+/* Image Framing - Points to the separate images folder */
+.image-frame {
+    width: 280px;
+    height: 280px;
+    margin: 0 auto 30px auto;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 8px solid #ffffff;
+    box-shadow: 0 10px 25px rgba(255, 77, 109, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.image-frame:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+.image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Interactive Card */
+.card {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(5px);
+    margin-bottom: 20px;
+}
+
+.card h2 {
+    font-size: 1.3rem;
+    color: #ff758f;
+    margin-bottom: 15px;
+}
+
+/* Hidden Letter State */
+.hidden-text {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    line-height: 1.6;
+    font-size: 1.1rem;
+    color: #595959;
+}
+
+.hidden-text.reveal {
+    max-height: 200px;
+    opacity: 1;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+button {
+    background: #ff4d6d;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #ff758f;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 77, 109, 0.6);
+}
+
+.btn-secondary {
+    background: #ff85a1;
+    margin-top: 10px;
+}
+
+.btn-secondary:hover {
+    background: #ff4d6d;
+}
+
+/* Floating Heart Element (JS Injection) */
+.floating-heart {
+    position: fixed;
+    bottom: -50px;
+    color: #ff4d6d;
+    font-size: 24px;
+    pointer-events: none;
+    animation: floatUp 4s linear forwards;
+    z-index: 100;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) translateX(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-105vh) translateX(var(--random-x)) scale(1.5);
+        opacity: 0;
+    }
+}
